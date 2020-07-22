@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 7.1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+    <div style="background-color: darkgrey;">
+        <a href="js_task7.1.html">01-PlanarSystem</a>&ensp;|&ensp;
+        <a href="js_task7.2.html">02-CustomRemote</a>&ensp;|&ensp;
+        <a href="js_task7.3.html">03-DeepCopy</a>&ensp;|&ensp;
+        <a href="js_task7.4.html">04-PropChecker</a>&ensp;|&ensp;
+        <a href="js_task7.5.html">05-YoungestPerson</a>&ensp;|&ensp;
+        <a href="js_task7.6.html">06-Grouping</a>&ensp;|&ensp;
+    </div><br>
+    <table>
+        <tr>
+            <td></td>
+            <td><input id="btn" onclick="calc()" type="button" value="Execute"
+                    style="background-color: rgb(211, 211, 211); color: #000;"></td>
+        </tr>
+    </table>
+
+    <div id="console"></div>
+    <script src="js-console.js"></script>
+    <script>
+        function calc() {
+
+            function createPoint(x, y) {
+                this.x = x;
+                this.y = y;
+                this.toString = function () {
+                    return " (" + this.x + "," + this.y + ")";
+                }
+                this.clonePoint = function () {
+                    return new createPoint(this.x, this.y);
+                }
+            }
+
+            function calcDistance(pointA, pointB) {
+                return Math.sqrt((pointB.x - pointA.x) ** 2 + (pointB.y - pointA.y) ** 2);
+            }
+
+            function createLine(pointA, pointB) {
+                this.start = pointA.clonePoint();
+                this.end = pointB.clonePoint();
+
+                this.toString = function () {
+                    return "Line point A" + this.start + "</br>" + " Line point B" + this.end + "</br>";
+                }
+                this.length = function () {
+                    return calcDistance(this.start, this.end);
+                }
+            }
+
+            function canBetriangle(line1, line2, line3) {
+                const isTriangle = (line1.length() + line2.length()) > line3.length() &&
+                    (line2.length() + line3.length()) > line1.length() &&
+                    (line1.length() + line3.length()) > line2.length();
+                return isTriangle ? 'The lines CAN create triangle!' : 'The lines CANNOT create triangle!';
+            }
+
+            let point1A = new createPoint(3, 3);
+            let point1B = new createPoint(5, 5);
+            let point2A = new createPoint(2, 2);
+            let point2B = new createPoint(4, 4);
+            let point3A = new createPoint(1, 1);
+            let point3B = new createPoint(3, 3);
+            let line1 = new createLine(point1A, point1B);
+            let line2 = new createLine(point2A, point2B);
+            let line3 = new createLine(point3A, point3B);
+
+            jsConsole.write("Line 1:" + "</br>" + line1);
+            jsConsole.write("Line lenght:" + calcDistance(point1A, point1B).toFixed(2) + "</br>");
+
+            jsConsole.write("</br>" + "Line 2:" + "</br>" + line2);
+            jsConsole.write("Line lenght:" + calcDistance(point2A, point2B).toFixed(2) + "</br>");
+
+            jsConsole.write("</br>" + "Line 3:" + "</br>" + line3);
+            jsConsole.write("Line lenght:" + calcDistance(point3A, point3B).toFixed(2) + "</br>");
+
+            jsConsole.write("</br>" + canBetriangle(line1, line2, line3) + "</br>");
+        }
+
+    </script>
+
+</body>
+
+</html>

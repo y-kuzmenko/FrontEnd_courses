@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.body {
+    width: 380px;
+    height: auto;
+    padding: 15px;
+    background-color: rgb(206, 206, 206);
+}
+
+button {
+    width: 80px;
+    height: 20px;
+    border: none;
+    position: relative;
+}
+.buttons {
+    text-align: right;
+    margin-top: 30px;
+}
+span {
+    display: block;
+   padding-top: 15px; 
+   margin-left: 15px;
+}
+button p {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+p {
+    color: honeydew;
+}
+.lable {
+    float: left;
+    width: 120px;
+    height: 90px;
+    border: 1px solid rgb(206, 206, 206);
+    margin-right: 15px;
+    padding-bottom: 15px;
+}
+div {
+    
+}
+.article {
+    margin-top: 20px;
+    width: 350px;
+    height: 105px;
+    border: 1px solid rgb(99, 99, 99);
+    background-color: #fff;
+    padding: 15px;
+}

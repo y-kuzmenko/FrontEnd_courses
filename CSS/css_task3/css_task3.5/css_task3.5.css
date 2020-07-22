@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.laptops {
+    margin: 10px;
+    width: 435px;
+    height: 470px;
+    border: 1px solid black;
+    float: left;
+}
+p {
+    position: relative;
+    bottom: 27px;
+    left: 20px;
+    margin-bottom: 10px;
+}
+fieldset {
+    width: 200px;
+    height: 140px;
+    float: left;
+    margin: 5px;
+}
+legend {
+    text-align: center;
+}
+img {
+    position: sticky;
+    height: 100px;
+    width: 100px;
+    float: left;
+    margin: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+ul {
+    margin-top: 40px;
+    list-style-type: none;
+}
+li {
+    margin-bottom: 10px;
+}
+p {
+    display: inline-block;
+    margin-top: 0;
+    text-align: left;
+}
+.forms {
+    padding-left: 20px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 470px;
+}

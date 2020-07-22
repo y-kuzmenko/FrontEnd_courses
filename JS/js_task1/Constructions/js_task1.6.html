@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Task 6</title>
+</head>
+<body>
+  <script>
+
+for (var i = 1; i < 4; i++) {  
+ 	if (i % 2)
+      document.write("******" + "<br/>");
+	else 
+	  document.write("*" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "*" + "<br/>");
+}
+document.body.style.fontSize = "20px";
+document.write("_________________________________________________________________________" + "<br/>");
+for (var i = 0; i < 5; i++) {
+	for (var j = 0; j < 5; j++) {
+	if ((i == j) || (i==4) || (j==0))
+		document.write("*");
+		else 
+		document.write("&nbsp" + "&nbsp");
+	}
+	document.write("<br/>");
+ }
+document.write("_________________________________________________________________________" + "<br/>");
+
+for (var i = 0; i < 4; i++) {
+	for (var j = -3; Math.abs(j) < 4; j++) {
+	if ((i == Math.abs(j)) || (i==3))
+		document.write("*");
+		else 
+		document.write("&nbsp" + "&nbsp");
+	}
+	document.write("<br/>");
+ }
+ 
+ document.write("_________________________________________________________________________" + "<br/>");
+ 
+ for (var i = 0; i < 4; i++) {
+	for (var j = -3; Math.abs(j) < 4; j++) {
+	if (i == Math.abs(j))
+		document.write("*");
+		else 
+		document.write("&nbsp" + "&nbsp");
+	}
+	document.write("<br/>");
+ }
+ for (var i = -2; Math.abs(i) < 3; i++) {
+	for (var j = -3; Math.abs(j) < 4; j++) {
+	if (-i == Math.abs(j))
+		document.write("*");
+		else 
+		document.write("&nbsp" + "&nbsp");
+	}
+	document.write("<br/>");
+ }
+  </script>
+</body>
+</html>
+
+

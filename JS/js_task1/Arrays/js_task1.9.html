@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 9</title>
+</head>
+
+<body>
+    Task 9<br>
+    <p>Дан целочисленный вектор А(n). Проверьте, есть ли в нем отрицательные элементы.<br>
+        Если есть, найдите наибольшее i, при котором А[i]&lt;0. </p>
+    <p>Введите значения целочисленного вектора разделяя их одним пробелом: <input id="arr" type="text">;
+        <input id="btn" onclick="calc()" type="button" value="Найти"></p>
+    <p>Наибольший отрицательный элемент: <span id="minus"></span></p>
+    <script>
+        function calc() {
+            let tempestString = document.getElementById("arr").value;
+            let arrayOfStrings = tempestString.split(' ');
+            let arrMinus = [];
+
+            for (var i = 0; i < arrayOfStrings.length; i++) {
+                if (arrayOfStrings[i] < 0)
+                    arrMinus.push(arrayOfStrings[i]);
+            }
+
+            var max = arrMinus[0];
+            for (var i = 0; i < arrMinus.length; i++) {
+                if (Number(arrMinus[i]) > max)
+                    max = arrMinus[i];
+            }
+            document.getElementById('minus').innerHTML = max;
+        }
+
+    </script>
+</body>
+
+</html>

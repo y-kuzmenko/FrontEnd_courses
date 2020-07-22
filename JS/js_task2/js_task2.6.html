@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+  <div style="background-color: darkgrey;">
+    <a href="js_task2.1.html">01-ArrayX5</a>&ensp;|&ensp;
+    <a href="js_task2.2.html">02-CompareCharArray</a>&ensp;|&ensp;
+    <a href="js_task2.3.html">03-MaximalSequence</a>&ensp;|&ensp;
+    <a href="js_task2.4.html">04-MaxIncreasingSequence</a>&ensp;|&ensp;
+    <a href="js_task2.5.html">05-SelectionSort</a>&ensp;|&ensp;
+    <a href="js_task2.6.html">06-MostFrequent</a>&ensp;|&ensp;
+    <a href="js_task2.7.html">07-BinarySearch</a>
+  </div><br>
+  <table>
+    <tr>
+      <td>Sequence [,]</td>
+      <td><input id="arr" type="text"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input id="btn" onclick="calc()" type="button" value="Execute"></td>
+    </tr>
+  </table>
+
+  <div id="console"></div>
+  <script src="js-console.js"></script>
+  <script>
+    function calc() {
+      
+      let arrString = document.getElementById("arr").value;
+      let arr = arrString.split(',');
+
+      var resultReduce = arr.reduce(function (acc, cur) {
+        if (!acc.hash[cur]) {
+          acc.hash[cur] = { [cur]: 1 };
+          acc.map.set(acc.hash[cur], 1);
+          acc.result.push(acc.hash[cur]);
+        } else {
+          acc.hash[cur][cur] += 1;
+          acc.map.set(acc.hash[cur], acc.hash[cur][cur]);
+        }
+        return acc;
+      }, {
+        hash: {},
+        map: new Map(),
+        result: []
+      });
+
+      var result = resultReduce.result.sort(function (a, b) {
+        return resultReduce.map.get(b) - resultReduce.map.get(a);
+      });
+
+      console.log(result, Object.entries(result[0]));
+      var finalResult = Object.entries(result[0]);
+      jsConsole.write(finalResult[0][0] + ' (' + finalResult[0][1] + ' times)');
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 14.4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="field" id="myField">
+
+        <div id="bean" class="droppable"></div>
+
+        <div class="trashes">
+            <div id="trash0"></div>
+            <div id="trash1"></div>
+            <div id="trash2"></div>
+            <div id="trash3"></div>
+            <div id="trash4"></div>
+            <div id="trash5"></div>
+            <div id="trash6"></div>
+        </div>
+    </section>
+
+
+    <script>
+        let currentDroppable = null;
+        let trahses = document.querySelectorAll('.trashes div');
+        let onTrash = false;
+        for (let i = 0; i < trahses.length; i++) {
+            let trash = document.getElementById('trash' + i);
+            trash.onmousedown = function(event) {
+
+                let shiftX = event.clientX - trash.getBoundingClientRect().left;
+                let shiftY = event.clientY - trash.getBoundingClientRect().top;
+
+                trash.style.position = 'absolute';
+                trash.style.zIndex = 1000;
+                document.body.getElementsByClassName('trashes')[0].append(trash);
+
+                moveAt(event.pageX, event.pageY);
+
+                function moveAt(pageX, pageY) {
+                    trash.style.left = pageX - shiftX + 'px';
+                    trash.style.top = pageY - shiftY + 'px';
+                }
+
+                function onMouseMove(event) {
+                    moveAt(event.pageX, event.pageY);
+
+                    trash.hidden = true;
+                    let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+                    trash.hidden = false;
+
+                    if (!elemBelow) return;
+
+                    let droppableBelow = elemBelow.closest('.droppable');
+                    if (currentDroppable != droppableBelow) {
+                        if (currentDroppable) { // null when we were not over a droppable before this event
+                            leaveDroppable(currentDroppable);
+                        }
+                        currentDroppable = droppableBelow;
+                        if (currentDroppable) { // null if we're not coming over a droppable now
+                            // (maybe just left the droppable)
+                            enterDroppable(currentDroppable);
+                        }
+                    }
+                }
+
+                document.addEventListener('mousemove', onMouseMove);
+
+                trash.onmouseup = function() {
+                    document.removeEventListener('mousemove', onMouseMove);
+                    trash.onmouseup = null;
+                    if (onTrash) {
+                        trash.remove();
+                    }
+                };
+
+            };
+            trash.ondragstart = function() {
+                return false;
+            };
+        }
+
+
+        function enterDroppable(elem) {
+            elem.style.background = 'url(basketOpen.jpg)';
+            elem.style.backgroundSize = '100% 100%';
+            onTrash = true;
+        }
+
+        function leaveDroppable(elem) {
+            elem.style.background = 'url(basketClose.jpg)';
+            elem.style.backgroundSize = '100% 100%';
+            onTrash = false;
+        }
+    </script>
+</body>
+
+</html>

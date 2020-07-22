@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3.5</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+    <div style="background-color: darkgrey;">
+        <a href="js_task3.1.html">01-LastDigit</a>&ensp;|&ensp;
+        <a href="js_task3.2.html">02-ReverseDigits</a>&ensp;|&ensp;
+        <a href="js_task3.3.html">03-WordCount</a>&ensp;|&ensp;
+        <a href="js_task3.4.html">04-DivCount</a>&ensp;|&ensp;
+        <a href="js_task3.5.html">05-NomberCount</a>&ensp;|&ensp;
+        <a href="js_task3.6.html">06-TwoNeighbors</a>&ensp;|&ensp;
+        <a href="js_task3.7.html">07-TwoNeighborsBigger</a>
+    </div><br>
+    <table>
+        <tr>
+            <td>Sequence [,]</td>
+            <td><input id="arr" type="text"></td>
+        </tr>
+        <tr>
+            <td>Search</td>
+            <td><input id="num" type="text"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input id="btn" onclick="calc()" type="button" value="Execute"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input id="test" onclick="test()" type="button" value="Test"></td>
+        </tr>
+    </table>
+
+    <div id="console"></div>
+    <script src="js-console.js"></script>
+
+    <script>
+        function calc() {
+            let tempestString1 = document.getElementById("arr").value;
+            let arr = tempestString1.split(',');
+
+            let num = document.getElementById("num").value;
+
+            var i, count = 0, len = arr.length;
+            function myFunc() {
+                for (i = 0; i < len; i++)
+                    if (arr[i] == num)
+                        count++;
+                return count;
+            }
+
+            jsConsole.write(myFunc(num) + '<br />');
+        }
+
+        function test() {
+        let arrTest = [1,5,4,1,2,3,1,4,5,6,1,2,3,6];
+        let numTest = 1;
+        var i, count = 0, lenTest = arrTest.length;
+            function myFunc() {
+                for (i = 0; i < lenTest; i++)
+                    if (arrTest[i] == numTest)
+                        count++;
+                return count;
+            }
+            jsConsole.write("Array for the test: " + arrTest + '<br />');
+            jsConsole.write("Checked item: " + numTest + '<br />');
+            jsConsole.write(myFunc(numTest));
+        }
+
+    </script>
+</body>
+
+</html>

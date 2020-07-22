@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 4.9</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+    <div style="background-color: darkgrey;">
+        <a href="js_task4.1.html">01-ReverseString</a>&ensp;|&ensp;
+        <a href="js_task4.2.html">02-BracketChecker</a>&ensp;|&ensp;
+        <a href="js_task4.3.html">03-SubstringCount</a>&ensp;|&ensp;
+        <a href="js_task4.4.html">04-UpCaseLowerCase</a>&ensp;|&ensp;
+        <a href="js_task4.5.html">05-nbsp</a>&ensp;|&ensp;
+        <a href="js_task4.6.html">06-HTML</a>&ensp;|&ensp;
+        <a href="js_task4.7.html">07-URL_JSON</a>&ensp;|&ensp;
+        <a href="js_task4.8.html">08-URL</a>&ensp;|&ensp;
+        <a href="js_task4.9.html">09-E-mail</a>&ensp;|&ensp;
+        <a href="js_task4.10.html">10-Palindrome</a>&ensp;|&ensp;
+    </div><br>
+    <table>
+        <tr>
+            <td></td>
+            <td><input id="btn" onclick="calc()" type="button" value="Execute"></td>
+        </tr>
+    </table>
+
+    <div id="console"></div>
+    <script src="js-console.js"></script>
+    <script>
+
+        function calc() {
+
+            let valid = ` Lorem rambler-27@yandex.com ipsum gosha@1.com dolor homepage-27@yandex-test.com `;
+            function emails(str) {
+                let regexp = /([0-9a-z]([-.\w]*[0-9a-z])*@(([0-9a-z]([-\w]*[0-9a-z])*)\.)+[a-z]{2,9})/ig;
+                return str.match(regexp);
+            }
+            jsConsole.write(emails(valid));
+            
+        }
+    </script>
+</body>
+
+</html>

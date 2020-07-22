@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Task 2</title>
+</head>
+
+<body>
+  Task 2 <br><br>
+  Вычислите среднее арифметическое трех целочисленных значений и выведите его на экран. <br><br>
+  <p>Введите первое целочисленное значение: <input id="first" type="text">;</p>
+  <p>Введите второе целочисленное значение: <input id="second" type="text">;</p>
+  <p>Введите третье целочисленное значение: <input id="third" type="text">;</p>
+
+  <p>Среднее арифметическое введенных чисел: <span id="result"></span>
+    <input id="btn" onclick="multi()" type="button" value="Расчитать"></p>
+
+  <script>
+
+    function multi() {
+      let x = document.getElementById("first").value;
+      let y = document.getElementById("second").value;
+      let z = document.getElementById("third").value;
+      x = Number(x);
+      y = Number(y);
+      z = Number(z);
+      let res = (x + y + z) / 3;
+      document.getElementById('result').innerHTML = res;
+    }
+
+  </script>
+</body>
+
+</html>

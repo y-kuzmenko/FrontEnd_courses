@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, td, th{
+            width: 1000px;
+            border: 1px solid lightslategray ;
+            border-collapse: collapse;
+        }
+        .pagination a {
+            color: black;
+            text-decoration: none;
+            margin-right: 2px;
+        }
+        .pagination a.active {
+            border-radius: 2px;
+            border: 1px solid  brown;
+        }
+        .filter {
+            width: 18px; 
+            height: 16px; 
+            vertical-align: middle; 
+            border: 1px solid lightgrey;"
+            border-radius: 2px;
+        }
+        img {
+            margin-top: 5px;
+            margin-bottom: -3px;
+            background-color: #fff;
+            height: 17px;
+            width: 17px;
+            border-radius: 2px;
+            border: 1px solid  rgb(107, 106, 106);
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr style="background-color: lightgrey;">
+            <td colspan="6">Drag a column header and drop it here to group by the column</td>
+        </tr>
+        <tr style="background-color: lightgrey;">
+            <td style="width: 7%;">ProductID</td>
+            <td style="width: 30%;">Product Name</td>
+            <td>Unit price</td>
+            <td>Quantity per unit</td>
+            <td>Units in stock</td>
+            <td style="width: 9%;">Discontinued</td>
+        </tr>
+        <tr style="background-color: lightgrey;">
+            <form>
+                <td><input type="text" size="1"></td>
+                <td><input type="text" size="20"></td>
+                <td><input type="text" size="10"><input class="filter" type="image" src="filter.png"></td>
+                <td><input type="text" size="10"></td>
+                <td><input type="text" size="10"><input class="filter" type="image" src="filter.png"></td>
+                <td><input type="checkbox"><input class="filter" type="image" src="filter.png"></td>
+            </form>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Chai</td>
+            <td>$18.00</td>
+            <td>10 boxes x 20 bags</td>
+            <td>39</td>
+            <td><input type="checkbox" disabled="true"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Chang</td>
+            <td>$19.00</td>
+            <td>24 - 12 oz bottles</td>
+            <td>17</td>
+            <td><input type="checkbox" disabled="true"></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Aniseed Syrop</td>
+            <td>$10.00</td>
+            <td>12 - 550 ml bottles</td>
+            <td>13</td>
+            <td><input type="checkbox" disabled="true"></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Chef Anton's Cajun Seasoning</td>
+            <td>$22.00</td>
+            <td>48 - 6 oz jars</td>
+            <td>53</td>
+            <td><input type="checkbox" disabled="true"></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Chef Anton's Gumbo Mix</td>
+            <td>$21.35</td>
+            <td>36 boxes</td>
+            <td>0</td>
+            <td><input type="checkbox" disabled="true" checked></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Grandma's Boyseberry Spread</td>
+            <td>$25.00</td>
+            <td>12 - 8 oz jars</td>
+            <td>120</td>
+            <td><input type="checkbox" disabled="true"></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Uncle Bob's Organic Dried Pears</td>
+            <td>$30.00</td>
+            <td>12 - 1 lb pkgs.</td>
+            <td>15</td>
+            <td><input type="checkbox" disabled="true"></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Northwoods Cranberry Sauce</td>
+            <td>$40.00</td>
+            <td>12 - 12 oz jars</td>
+            <td>6</td>
+            <td><input type="checkbox" disabled="true"></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Mishi Kobe Niku</td>
+            <td>$97.00</td>
+            <td>18 - 500 g pkgs.</td>
+            <td>29</td>
+            <td><input type="checkbox" disabled="true" checked></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Ikura</td>
+            <td>$31.00</td>
+            <td>12 - 200 ml jars</td>
+            <td>31</td>
+            <td><input type="checkbox" disabled="true"></td>
+        </tr>
+        <tr style="background-color: lightgray;">
+            <td colspan="3" style="border-right: none;">
+            <form>
+                <div class="pagination">
+                <a href="html_task3.3.1.html"><img src="step-backward-solid.svg"></a>
+                <a href="#"><img src="caret-left-solid.svg"></a>
+                <a href="#" class="active">1 </a>
+                <a href="html_task3.3.2.html">2 </a>
+                <a href="html_task3.3.3.html">3</a>
+                <a href="html_task3.3.2.html"><img src="caret-right-solid.svg"></a>
+                <a href="html_task3.3.3.html"><img src="step-forward-solid.svg"></a>
+                 Page size: 
+                <select>
+                    <option value="Value 1">5</option>
+                    <option value="Value 2" selected="selected">10</option>
+                    <option value="Value 2">15</option>
+                </select>
+            </div>
+            <td colspan="3" style="text-align: right; border-left: none;">335104 items in 33511 pages</td>
+            </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

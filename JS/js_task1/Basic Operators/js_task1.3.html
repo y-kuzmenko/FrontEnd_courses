@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Task 3</title>
+</head>
+
+<body>
+  Task 3<br><br>
+  <p>Напишите программу расчета объема - V и площади поверхности - S цилиндра.<br>
+    Объем V цилиндра радиусом - r и высотой – h, вычисляется по формуле: V = πr 2 h. <br>
+    Площадь S поверхности цилиндра вычисляется по формуле: S = 2π rh + 2π r 2 = 2π r (r+ h). <br>
+    Результаты расчетов выведите на экран.<br><br>
+  </p>
+
+  <p>Введите радиус цилиндра: <input id="radius" type="text">;</p>
+  <p>Введите высоту цилиндра: <input id="hight" type="text">;</p>
+  <input id="btn" onclick="calc()" type="button" value="Расчитать"></p>
+  <p>Обьем цилиндра V = <span id="resVolum"></span></p>
+  <p>Площадь цилиндра S = <span id="resultArea"></span></p>
+
+
+  <script>
+    function calc() {
+      let r = document.getElementById("radius").value;
+      let h = document.getElementById("hight").value;
+      r = Number(r);
+      h = Number(h);
+
+      let resVol = Math.PI*Math.pow(r,2)*h;
+      document.getElementById('resVolum').innerHTML = resVol;
+
+      let resArea = 2 * Math.PI * r * (h + r);
+      document.getElementById('resultArea').innerHTML = resArea;
+    }
+
+  </script>
+</body>
+
+</html>

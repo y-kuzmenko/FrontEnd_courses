@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 400px;
+    height: 400px;
+}
+table {
+    background-color: rgb(110, 110, 110);
+    padding-left: 10px;
+}
+th {
+    text-align: left;
+}
+p {
+    color: rgb(194, 194, 194);
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-top: 10px;
+}
+td {
+    padding: 10px 40px 5px 0px;
+}
+td:nth-of-type(1) {
+    color: #fff;
+    font-style: italic;
+}
+.red {
+    color: red;
+    padding-top: 0px;
+    font-weight: 600;
+}
+.orange {
+    color: orange;
+    font-weight: 600;
+}
+.gray {
+    color: rgb(194, 194, 194);
+}
+.green {
+    padding-bottom: 0px;
+}
+.yellow {
+    color: rgb(230, 230, 150);
+}
+i {
+    color: rgb(90, 209, 90);
+    font-size: 12px;
+    margin-right: 5px;
+}

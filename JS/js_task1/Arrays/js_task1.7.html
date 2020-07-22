@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Task 7</title>
+</head>
+<body>
+  Task 7<br>
+  <p>
+    Требуется: Создать массив размерностью N элементов, заполнить его произвольными целыми значениями.<br>
+    Вывести наибольшее значение массива, наименьшее значение массива, общую сумму элементов, среднее<br>
+     арифметическое всех элементов, вывести все нечетные значения. 
+  </p>
+
+  <script>
+  
+var arr = [3, 17, 5, 6, 103, 4, 1, 7, -9, 8, 11, -45, 23, 56, 28];
+
+var summ = 0;
+for (var i = 0; i < arr.length; i++){
+summ += arr[i];
+}
+document.write("Среднее арифметическое значение массива: " + (summ / arr.length) + "<br/>");
+document.write("Общая сумма массива: " + summ + "<br/>");
+
+var max = arr[0];
+for (var i = 0; i < arr.length; i++){
+if (arr[i] > max)
+max = arr[i];
+}
+document.write("Наибольшее значение массива: " + max + "<br/>");
+
+var min = arr[0];
+for (var i = 0; i < arr.length; i++){
+if (arr[i] < min)
+min = arr[i];
+}
+document.write("Наименьшее значение массива: " + min + "<br/>");
+ 
+document.write("Все нечетные значения массива: ");
+for (var i = 0; i < arr.length; i++){
+ if (Math.abs(arr[i] % 2) == 1)
+ document.write(arr[i] + ", ");
+};
+  </script>
+</body>
+</html>

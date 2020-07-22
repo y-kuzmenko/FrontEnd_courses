@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3.6</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+    <div style="background-color: darkgrey;">
+        <a href="js_task3.1.html">01-LastDigit</a>&ensp;|&ensp;
+        <a href="js_task3.2.html">02-ReverseDigits</a>&ensp;|&ensp;
+        <a href="js_task3.3.html">03-WordCount</a>&ensp;|&ensp;
+        <a href="js_task3.4.html">04-DivCount</a>&ensp;|&ensp;
+        <a href="js_task3.5.html">05-NomberCount</a>&ensp;|&ensp;
+        <a href="js_task3.6.html">06-TwoNeighbors</a>&ensp;|&ensp;
+        <a href="js_task3.7.html">07-TwoNeighborsBigger</a>
+    </div><br>
+    <table>
+        <tr>
+            <td>Sequence [,]</td>
+            <td><input id="arr" type="text"></td>
+        </tr>
+        <tr>
+            <td>Position</td>
+            <td><input id="num" type="text"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input id="btn" onclick="calc()" type="button" value="Execute"></td>
+        </tr>
+    </table>
+
+    <div id="console"></div>
+    <script src="js-console.js"></script>
+
+    <script>
+        function calc() {
+            let tempestString = document.getElementById("arr").value;
+            let arr = tempestString.split(',');
+
+            for (var i = 0; i < arr.length; i++) {
+                arr[i] = Number(arr[i]);
+            }
+            let num = Number(document.getElementById("num").value);
+
+            function TwoNeighbors() {
+
+                if (arr[num] > arr[num - 1] && arr[num] > arr[num + 1]) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+
+            if (num === 0 || (num === arr.length - 1)) {
+                jsConsole.write("The position cannot be first or last element in the sequence!" + '<br />');
+            }
+            else {
+                jsConsole.write(TwoNeighbors() + '<br />');
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+.main {
+  display: inline-flex;
+  width: 600px;
+  height: 450px;
+  padding: 5px;
+  background-color: gray; }
+  .main .slides {
+    width: 70%;
+    height: 420px;
+    margin: 0;
+    padding-left: 7px;
+    list-style: none; }
+    .main .slides > li {
+      display: block;
+      width: 820px;
+      height: 50%;
+      position: absolute;
+      z-index: 1;
+      overflow: hidden;
+      margin-top: 10px; }
+      .main .slides > li > img {
+        position: absolute;
+        width: 60%;
+        height: 100%; }
+    .main .slides li:target {
+      z-index: 3;
+      -webkit-animation: slide 1s 1; }
+  .main .mini {
+    height: 400px;
+    width: 100px;
+    overflow: scroll;
+    padding: 0;
+    margin: 0;
+    list-style: none; }
+    .main .mini > li > a {
+      display: block; }
+      .main .mini > li > a > img {
+        width: 100%; }
+  .main .fullsizedlink {
+    color: #fff;
+    font-size: 12px;
+    display: inline-table;
+    margin-top: -25px;
+    padding-left: 0px;
+    margin-left: 150px; }
+
+span {
+  display: inline-block;
+  margin-top: 10px;
+  color: #fff; }
+
+/*# sourceMappingURL=styles.css.map */

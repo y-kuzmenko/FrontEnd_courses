@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 4.12</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+    <div style="background-color: darkgrey;">
+        <a href="js_task4.1.html">01-ReverseString</a>&ensp;|&ensp;
+        <a href="js_task4.2.html">02-BracketChecker</a>&ensp;|&ensp;
+        <a href="js_task4.3.html">03-SubstringCount</a>&ensp;|&ensp;
+        <a href="js_task4.4.html">04-UpCaseLowerCase</a>&ensp;|&ensp;
+        <a href="js_task4.5.html">05-nbsp</a>&ensp;|&ensp;
+        <a href="js_task4.6.html">06-HTML</a>&ensp;|&ensp;
+        <a href="js_task4.7.html">07-URL_JSON</a>&ensp;|&ensp;
+        <a href="js_task4.8.html">08-URL</a>&ensp;|&ensp;
+        <a href="js_task4.9.html">09-E-mail</a>&ensp;|&ensp;
+        <a href="js_task4.10.html">10-Palindrome</a>&ensp;|&ensp;
+        <a href="js_task4.11.html">11-StringFormat</a>&ensp;|&ensp;
+        <a href="js_task4.12.html">12-Templates</a>&ensp;|&ensp;
+    </div><br>
+
+    <div data-type="template" id="list-item">
+        <strong>-{name}-</strong> <span>-{age}-</span>
+    </div>
+
+    <table>
+        <tr>
+            <td></td>
+            <td><input id="btn" onclick="calc()" type="button" value="Execute"></td>
+        </tr>
+    </table>
+
+    <div id="console"></div>
+    <script src="js-console.js"></script>
+    <script>
+
+        function calc() {
+
+            var people = [
+                { name: "Шапокляк", age: 55 },
+                { name: "Чебурашка", age: 17 },
+                { name: "Крыска-Лариска", age: 18 },
+                { name: "Крокодильчик", age: 26 },
+                { name: "Турист- завтрак крокодильчика", age: 32 },
+            ];
+
+            function generateHtmlList(people, template) {
+                var elementUL = document.createElement("ul");
+
+                var elementDIV = document.getElementById("list-item");
+
+                for (var i = 0; i < people.length; i++) {
+
+                    var elementLI = document.createElement("li");
+
+                    elementLI.innerHTML = template.replace('{name}', (people[i]["name"])).replace('{age}', (people[i]["age"]));
+                    elementUL.appendChild(elementLI);
+                }
+                elementDIV.innerHTML = elementUL.innerHTML;
+            }
+
+            var divPeople = document.getElementById("list-item");
+            var template = divPeople.innerHTML;
+
+            generateHtmlList(people, template);
+
+        }
+    </script>
+</body>
+
+</html>

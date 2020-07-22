@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Task 4</title>
+</head>
+
+<body>
+  task 4<br>
+
+  <p>Дано два числа A и B где (A&lt;B). <br>
+    Выведите на экран суму всех чисел расположенных в числовом промежутке от А до В. <br>
+    Выведите на экран все нечетные значения, расположенные в числовом промежутке от А до В. </p>
+
+  <script>
+
+    let a = prompt('Введите число A');
+    let b = prompt('Введите число B');
+    a = Number(a);
+    b = Number(b);
+    let summ = 0;
+
+    document.write("Cумa всех чисел расположенных в числовом промежутке от А до В: ");
+
+    for (let i = a; i <= b; i++) {
+      summ += i;
+    }
+    document.write(summ);
+
+    document.write("<br>" + "Все нечетные целые значения в интервале от A до B: ");
+
+    if (!isNaN(a) && !isNaN(b)) {
+      a = Math.ceil(a);
+      if (0 == a % 2) {
+        ++a;
+      };
+      for (var i = a; i <= b; i += 2) {
+        document.write(i + ',');
+      };
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Task 4.1</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+  <div style="background-color: darkgrey;">
+    <a href="js_task4.1.html">01-ReverseString</a>&ensp;|&ensp;
+    <a href="js_task4.2.html">02-BracketChecker</a>&ensp;|&ensp;
+    <a href="js_task4.3.html">03-SubstringCount</a>&ensp;|&ensp;
+    <a href="js_task4.4.html">04-UpCaseLowerCase</a>&ensp;|&ensp;
+    <a href="js_task4.5.html">05-nbsp</a>&ensp;|&ensp;
+  </div><br>
+  <table>
+    <tr>
+      <td>String: </td>
+      <td><input id="word" type="text"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input id="btn" onclick="calc()" type="button" value="Execute"></td>
+    </tr>
+  </table>
+
+  <div id="console"></div>
+  <script src="js-console.js"></script>
+  <script>
+    function calc() {
+      let str = document.getElementById("word").value;
+      function reverseString(str) {
+
+        return str.split("").reverse().join("");
+
+      }
+      reverseString(str);
+      jsConsole.write(reverseString(str));
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 7.5</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+    <div style="background-color: darkgrey;">
+        <a href="js_task7.1.html">01-PlanarSystem</a>&ensp;|&ensp;
+        <a href="js_task7.2.html">02-CustomRemote</a>&ensp;|&ensp;
+        <a href="js_task7.3.html">03-DeepCopy</a>&ensp;|&ensp;
+        <a href="js_task7.4.html">04-PropChecker</a>&ensp;|&ensp;
+        <a href="js_task7.5.html">05-YoungestPerson</a>&ensp;|&ensp;
+        <a href="js_task7.6.html">06-Grouping</a>&ensp;|&ensp;
+    </div><br>
+    <table>
+        <tr>
+            <td></td>
+            <td><input id="btn" onclick="calc()" type="button" value="Execute"
+                    style="background-color: rgb(211, 211, 211); color: #000;"></td>
+        </tr>
+    </table>
+
+    <div id="console"></div>
+    <script src="js-console.js"></script>
+    <script>
+        function calc() {
+
+            function youngestPerson(obj) {
+
+                let sortByAge = obj.sort(function (p1, p2) {
+                    return p1.age - p2.age;
+                });
+                return ('The youngest Person is:' + "</br>" + sortByAge[0].firstName + ' ' + sortByAge[0].lastName + ' - ' + sortByAge[0].age);
+            }
+
+            var people = [
+                { firstName: "Gosho", lastName: "Petrov", age: 32 },
+                { firstName: "Bay", lastName: "Ivan", age: 81 },
+                { firstName: "Matthew", lastName: "LeBlanc", age: 37 },
+                { firstName: "Jennifer", lastName: "Aniston", age: 24 },
+                { firstName: "Courteney", lastName: "Cox", age: 28 },
+            ];
+
+            jsConsole.write(youngestPerson(people));
+
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Task 4.4</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+
+  <body>
+    <div style="background-color: darkgrey;">
+      <a href="js_task4.1.html">01-ReverseString</a>&ensp;|&ensp;
+      <a href="js_task4.2.html">02-BracketChecker</a>&ensp;|&ensp;
+      <a href="js_task4.3.html">03-SubstringCount</a>&ensp;|&ensp;
+      <a href="js_task4.4.html">04-UpCaseLowerCase</a>&ensp;|&ensp;
+      <a href="js_task4.5.html">05-nbsp</a>&ensp;|&ensp;
+    </div><br>
+    <table>
+      <tr>
+        <td>Text: </td>
+        <td><input id="word" type="text"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input id="btn" onclick="calc()" type="button" value="Execute"></td>
+      </tr>
+    </table>
+
+    <div id="console"></div>
+    <script src="js-console.js"></script>
+
+
+    <script>
+      
+      function calc() {
+        let str = document.getElementById("word").value;
+        
+        var arrMixLiving = str.slice(16, 22);
+        var mixLiving = arrMixLiving[0].toUpperCase() + arrMixLiving[1] + arrMixLiving[2].toUpperCase() + arrMixLiving[3] + arrMixLiving[4] + arrMixLiving[5].toUpperCase();
+
+        var upCase = str.slice(46, 61);
+        var yellowSubmarine = upCase.toUpperCase();
+
+        var arrMixDnt = str.slice(85, 90);
+        var mixDnt = arrMixDnt[0] + arrMixDnt[1].toUpperCase() + arrMixDnt[2] + arrMixDnt[3] + arrMixDnt[4].toUpperCase();
+
+        var lowCase = str.slice(-24, -16);
+        var anything = lowCase.toLowerCase();
+
+        jsConsole.write(("We are <mixcase>") + mixLiving + ("</mixcase> in a <upcase>") + yellowSubmarine + ("</upcase>. We <mixcase>") + mixDnt + ("</mixcase> have <lowcase>") + anything + ("</lowcase> else."));
+      }
+
+
+
+    </script>
+  </body>
+
+</html>

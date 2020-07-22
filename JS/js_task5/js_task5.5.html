@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 5.5</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+    <div style="background-color: darkgrey;">
+        <a href="js_task5.1.html">01-FunctionDeclarationStatement</a>&ensp;|&ensp;
+        <a href="js_task5.2.html">02-FunctionDefinitionExpression</a>&ensp;|&ensp;
+        <a href="js_task5.3.html">03-AnonymousFunction</a>&ensp;|&ensp;
+        <a href="js_task5.4.html">04-Fibonachi</a>&ensp;|&ensp;
+        <a href="js_task5.5.html">05-CheckSpam</a>&ensp;|&ensp;
+        <a href="js_task5.6.html">06-'...'</a>&ensp;|&ensp;
+    </div><br>
+    <table>
+        <tr>
+            <td>Enter text: </td>
+            <td><input id="text" type="text"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input id="btn" onclick="calc()" type="button" value="Execute"></td>
+        </tr>
+    </table>
+
+    <div id="console"></div>
+    <script src="js-console.js"></script>
+    <script>
+        function calc() {
+
+            let str = document.getElementById("text").value;
+
+            let checkSpam = function (str) {
+
+                let re = /(^|\b|\[)(sex|spam)(\b|\]|$)/i;
+
+                return re.test(str);
+
+            };
+
+            jsConsole.write(checkSpam(str));
+        }
+    </script>
+</body>
+
+</html>

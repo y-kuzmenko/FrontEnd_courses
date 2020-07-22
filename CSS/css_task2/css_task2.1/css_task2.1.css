@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: "Consolas"; 
+    src: url("//db.onlinewebfonts.com/t/1db29588408eadbd4406aae9238555eb.eot");  
+    font-family: "Edwardian Script ITC"; 
+    src: url("//db.onlinewebfonts.com/t/84ae358e627d67d90bd613fcedc20c10.eot");
+}
+p {
+    width: 50%;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    color: #0094ff;
+    font-family: Consolas;
+}
+p::first-line {
+    font-weight: 600;
+}
+span {
+    font-family: Edwardian Script ITC;
+    font-size: 2em;
+}

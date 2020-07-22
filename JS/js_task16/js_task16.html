@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 16</title>
+</head>
+
+<body>
+    <script type="module">
+        (function () {
+            function makeRequest(method, url, body) {
+                return new Promise(function (resolve, reject) {
+                    if (method === 'POST') {
+                        resolve(body);
+                    } else {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open(method, url);
+                        xhr.onload = function () {
+                            if (this.status >= 200 && this.status < 300) {
+                                resolve(xhr.response);
+                            } else {
+                                reject({
+                                    status: this.status,
+                                    statusText: xhr.statusText
+                                });
+                            }
+                        };
+                        xhr.onerror = function () {
+                            reject({
+                                status: this.status,
+                                statusText: xhr.statusText
+                            });
+                        };
+                        xhr.send(body);
+                    }
+                });
+            }
+
+            var url = '01.data.json';
+            document.getElementById('get').addEventListener('click', getRequest);
+            document.getElementById('post').addEventListener('click', postRequest);
+
+
+            function getRequest() {
+                makeRequest('GET', url)
+                    .then(function (data) {
+                        document.getElementsByClassName('data')[0].innerHTML = data.toString();
+                    })
+                    .catch(function (err) {
+                        console.error('smth went wrong with GET', err.statusText);
+                    });
+            }
+
+            function postRequest() {
+                var form = document.forms.postForm;
+                var payLoad = {
+                    'firstName': form.elements.firstName.value,
+                    'lastName': form.elements.lastName.value,
+                    'age': form.elements.age.value,
+                };
+                makeRequest('POST', '/', payLoad)
+                    .then(function (data) {
+                        document.getElementsByClassName('data')[1].innerHTML = JSON.stringify(data);
+                    });
+            }
+        })();
+    </script>
+    <div class="data"></div>
+    <button id="get">Make get request</button>
+    <div class="data"></div>
+    <form name="postForm">
+        First name:<input name="firstName" />
+        Last name:<input name="lastName" />
+        Age:<input name="age" />
+    </form>
+    <button id="post">Make post request</button>
+</body>
+
+</html>

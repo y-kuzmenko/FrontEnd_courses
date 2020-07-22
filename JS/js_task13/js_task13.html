@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 13</title>
+</head>
+
+<body>
+    <div id="myDiv">Don't forget to:</div>
+
+    <input type="text" id="text">
+
+    <input id="addCheck" type="button" value="add">
+    <input id="removeCheck" type="button" value="Remove selected">
+    <input id="hideCheck" type="button" value="Hide selected">
+    <input id="showCheck" type="button" value="Show hidden">
+
+    <script>
+        var tasks = document.getElementById('myDiv').children,
+        i = tasks.length + 1;
+
+        function addCheckbox() {
+            var elem = document.getElementById('text').value;
+            var myDiv = document.getElementById("myDiv");
+
+            var task = document.createElement('div');
+            task.classList.add('task');
+
+            var checkbox = document.createElement('input');
+            checkbox.type = "checkbox";
+            checkbox.name = "name";
+            checkbox.value = "value";
+            checkbox.id = "id";
+
+            var label = document.createElement('label');
+            label.htmlFor = "id";
+            label.appendChild(document.createTextNode(elem));
+
+            task.appendChild(checkbox);
+            task.appendChild(label);
+            myDiv.appendChild(task);
+        }
+        addCheck.addEventListener("click", addCheckbox);
+
+
+        function hideCheckbox() {
+            var tasks = document.getElementById('id');
+            var hidden = document.querySelectorAll('input:checked');
+            for (let i = 0; i < hidden.length; i++) {
+                hidden[i].parentNode.style.display = 'none';
+                //hidden[i].checked = false;
+            }
+        }
+        hideCheck.addEventListener("click", hideCheckbox);
+
+
+        function showCheckbox() {
+            for (let i = 0; i < tasks.length; i++) {
+                if (tasks[i].style.display === 'none') {
+                    tasks[i].style.display = 'block';
+                }
+            }
+        }
+        showCheck.addEventListener("click", showCheckbox);
+
+
+        function removeCheckbox() {
+            var checkboxList = document.getElementById('myDiv');
+            var deleted = document.querySelectorAll('input:checked');
+            for (let i = 0; i < deleted.length; i++) {
+                checkboxList.removeChild(deleted[i].parentNode);
+            }
+        }
+        removeCheck.addEventListener("click", removeCheckbox);
+
+    </script>
+</body>
+
+</html>

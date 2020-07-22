@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preceding Text</title>
+    <style>
+        ol {counter-reset: point1;}
+        ol li:after {
+        counter-increment: point1;
+        content: counter(point1);
+        }
+        ol ol {counter-reset: point2;}
+        ol ol li:after {
+        counter-increment: point2;
+        content: counter(point1) "." counter(point2);
+        }
+        ol ol ul{counter-reset: point3;}
+        ol ol ul li:after {
+        counter-increment: point3;
+        content: counter(point1) "." counter(point2) "." counter(point3);
+        }
+        ol ol ul ul{counter-reset: point4;}
+        ol ol ul ul li:after {
+        counter-increment: point4;
+        content: counter(point1) "." counter(point2) "." counter(point3) "." counter(point4);        
+        }
+        ol ul{counter-reset: point5 1;}
+        ol ul li:after {
+        counter-increment: point5 0;
+        content: counter(point1) "." counter(point5);
+        }
+        </style>
+</head>
+<body> 
+    <p>Preceding Text</p>
+    <ol>
+        <li type="I">&emsp;&ensp;Listen Item </li>
+            <ol>
+                <li type="a">Nested Item </li> 
+                <li type="a">Nested Item </li>
+            </ol>        
+        <li type="I">&emsp;&ensp;Listen Item </li>
+            <ol>
+                <li type="1">Nested Item </li>
+                <li type="1">Nested Item </li>
+                    <ul>
+                        <li type="circle">Nested Item </li>
+                        <li type="circle">Nested Item </li>
+                            <ul>
+                                <li type="square">Nested Item </li>
+                                <li type="square">Nested Item </li>
+                            </ul>
+                        <li type="circle">Nested Item </li>
+                    </ul>
+                <li type="1">Nested Item </li>
+            </ol>
+        <li type="I">&emsp;&ensp;Listen Item </li>
+            <ul>
+                <li type="disc">Nested Item </li>
+                <li type="disc">Nested Item </li>
+                <li type="disc">Nested Item </li>
+            </ul>
+    </ol>
+</body>
+</html>

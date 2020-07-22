@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Task 3.3</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+  <div style="background-color: darkgrey;">
+    <a href="js_task3.1.html">01-LastDigit</a>&ensp;|&ensp;
+    <a href="js_task3.2.html">02-ReverseDigits</a>&ensp;|&ensp;
+    <a href="js_task3.3.html">03-WordCount</a>&ensp;|&ensp;
+    <a href="js_task3.4.html">04-DivCount</a>&ensp;|&ensp;
+    <a href="js_task3.5.html">05-NomberCount</a>&ensp;|&ensp;
+    <a href="js_task3.6.html">06-TwoNeighbors</a>&ensp;|&ensp;
+    <a href="js_task3.7.html">07-TwoNeighborsBigger</a>
+  </div><br>
+  <table>
+    <tr>
+      <td>Text: </td>
+      <td><textarea name="arr" id="arr" cols="30" rows="10"></textarea></td>
+    </tr>
+    <tr>
+      <td>Word: </td>
+      <td><input id="word" type="text"></td>
+    </tr>
+    <tr>
+      <td>With case sensitive: </td>
+      <td><input id="sens" type="checkbox" checked></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input id="btn" onclick="calc()" type="button" value="Execute"></td>
+    </tr>
+  </table>
+
+  <div id="console"></div>
+  <script src="js-console.js"></script>
+  <script>
+    
+    function calc() {
+      function occurrenceInText(text, word, sensitiveFlag) {
+        if (!sensitiveFlag) {
+          text = text.toLowerCase();
+          word = word.toLowerCase();
+        }
+        var startIndex = 0;
+        var required = 0;
+        while (true) {
+          startIndex = text.indexOf(word, startIndex);
+          if (startIndex == -1) {
+            break;
+          }
+          else {
+            startIndex += word.length;
+            required++;
+          }
+        }
+        return required;
+      }
+
+      let str = document.getElementById("arr").value;
+      let target = document.getElementById("word").value;
+      let sens = document.getElementById("sens");
+      if (sens.checked) {
+        jsConsole.write("There are " + occurrenceInText(str, target, true) + " occurrences of the word" + "	&quot;" + target + "&quot;" + '<br />');;
+      }
+      else {
+        jsConsole.write("There are " + occurrenceInText(str, target) + " occurrences of the word" + "	&quot;" + target + "&quot;" + '<br />');
+      }
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Task 8</title>
+</head>
+<body>
+  Task 8 <br>
+  <p>
+    Требуется: Создать двумерный массив элементов размерностью 5х5 и заполнить его<br>
+    произвольными целочисленными значениями.  По главной диагонали все числа со знаком (-)<br>
+     заменить на 0, а числа со знаком (+) на число 1.
+  </p>
+
+
+  <script>
+ 
+ var matrix = [
+  [1,   2,  3,   4,  5],
+  [9,  -8,  7,   6,  0],
+  [12, 13, 11,  -3, 16],
+  [24, 25, 23, -21, 29],
+  [96, 63, 85,  52, 41]
+];
+for (var i = 0; i < 5; i++) {
+	for (var j = 0; j < 5; j++) {
+	if ((i == j) & ((matrix[i][j]) < 0))
+		(matrix[i][j]) = 0;
+	else if ((i == j) & ((matrix[i][j]) > 0))
+		(matrix[i][j]) = 1;
+	}
+}	
+for (var i = 0; i < 5; i++) {
+	for (var j = 0; j < 5; j++) {
+		document.write((matrix[i][j]) + "  ");
+	}
+document.write("<br/>");
+}
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 12.4</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="js-console.css">
+    <style>
+        .circle {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            position: absolute;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td><input onclick="createDivs()" type="button" value="Create Divs"></td>
+            <td><input onclick="animateDivs()" type="button" value="Animate Divs"></td>
+        </tr>
+    </table>
+
+    <div id="console"></div>
+    <script src="js-console.js"></script>
+    <script>
+        var console = document.getElementById('console');
+        var CenterX = 400;
+        var CenterY = 300;
+        var radius = 150;
+
+        function createDivs() {
+            for (var i = 0; i < 5; i++) {
+                var x = (CenterX + radius * Math.cos(2 * Math.PI * i / 5));
+                var y = (CenterY + radius * Math.sin(2 * Math.PI * i / 5));
+                var style = `top: ${y}px;
+                         left: ${x}px;`;
+
+                var el = document.createElement('div');
+                el.setAttribute('class', 'circle');
+                el.setAttribute('id', `circle${i}`);
+                el.setAttribute('style', style);
+                console.appendChild(el);
+            }
+        }
+
+        function animateDivs() {
+            var init = 0;
+            var angle = 2 * Math.PI / 75;
+            setInterval(function() {
+               for (var i = 0; i < 5; i++) {
+                   var circle = document.getElementById(`circle${i}`);
+                   init += ((angle * (i + 72)/ 5), 50);
+                   circle.style.left = CenterX + radius * Math.cos(init) + 'px';
+                   circle.style.top = CenterY + radius * Math.sin(init) + 'px';
+               }
+            }, 200);
+        }
+    </script>
+</body>
+
+</html>

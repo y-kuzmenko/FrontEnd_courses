@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 4.11</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+    <div style="background-color: darkgrey;">
+        <a href="js_task4.1.html">01-ReverseString</a>&ensp;|&ensp;
+        <a href="js_task4.2.html">02-BracketChecker</a>&ensp;|&ensp;
+        <a href="js_task4.3.html">03-SubstringCount</a>&ensp;|&ensp;
+        <a href="js_task4.4.html">04-UpCaseLowerCase</a>&ensp;|&ensp;
+        <a href="js_task4.5.html">05-nbsp</a>&ensp;|&ensp;
+        <a href="js_task4.6.html">06-HTML</a>&ensp;|&ensp;
+        <a href="js_task4.7.html">07-URL_JSON</a>&ensp;|&ensp;
+        <a href="js_task4.8.html">08-URL</a>&ensp;|&ensp;
+        <a href="js_task4.9.html">09-E-mail</a>&ensp;|&ensp;
+        <a href="js_task4.10.html">10-Palindrome</a>&ensp;|&ensp;
+        <a href="js_task4.11.html">11-StringFormat</a>&ensp;|&ensp;
+        <a href="js_task4.12.html">12-Templates</a>&ensp;|&ensp;
+    </div><br>
+    <table>
+        <tr>
+            <td></td>
+            <td><input id="btn" onclick="calc()" type="button" value="Execute"></td>
+        </tr>
+    </table>
+
+    <div id="console"></div>
+    <script src="js-console.js"></script>
+    <script>
+
+        function calc() {
+
+            function stringFormat(strings, ...keys) {
+                return (function (...values) {
+                    let dict = values[values.length - 1] || {};
+                    let result = [strings[0]];
+                    keys.forEach(function (key, i) {
+                        let value = Number.isInteger(key) ? values[key] : dict[key];
+                        result.push(value, strings[i + 1]);
+                    });
+                    return result.join('');
+                });
+            }
+
+            let str = stringFormat`The coordinates of the ${0} are X:${1} and Y:${2}!`;
+           
+            jsConsole.write(str("rectangle", 25, 36));                  
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 7.4</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+    <div style="background-color: darkgrey;">
+        <a href="js_task7.1.html">01-PlanarSystem</a>&ensp;|&ensp;
+        <a href="js_task7.2.html">02-CustomRemote</a>&ensp;|&ensp;
+        <a href="js_task7.3.html">03-DeepCopy</a>&ensp;|&ensp;
+        <a href="js_task7.4.html">04-PropChecker</a>&ensp;|&ensp;
+        <a href="js_task7.5.html">05-YoungestPerson</a>&ensp;|&ensp;
+        <a href="js_task7.6.html">06-Grouping</a>&ensp;|&ensp;
+    </div><br>
+    <table>
+        <tr>
+            <td>Property: </td>
+            <td><input id="check" type="text"></td>
+            <td>// name, age, height, weight</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input id="btn" onclick="calc()" type="button" value="Execute"
+                    style="background-color: rgb(211, 211, 211); color: #000;"></td>
+        </tr>
+    </table>
+
+    <div id="console"></div>
+    <script src="js-console.js"></script>
+    <script>
+        function calc() {
+
+            function PropChecker(checker){
+               return checker.hasOwnProperty(document.getElementById("check").value) 
+            }
+
+            let obj = {
+                name: "Ivan",
+                age: 33,
+                height: 188,
+                weight: 90
+            };
+
+            jsConsole.write(PropChecker(obj));
+ 
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 3.4</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+    <div style="background-color: darkgrey;">
+        <a href="js_task3.1.html">01-LastDigit</a>&ensp;|&ensp;
+        <a href="js_task3.2.html">02-ReverseDigits</a>&ensp;|&ensp;
+        <a href="js_task3.3.html">03-WordCount</a>&ensp;|&ensp;
+        <a href="js_task3.4.html">04-DivCount</a>&ensp;|&ensp;
+        <a href="js_task3.5.html">05-NomberCount</a>&ensp;|&ensp;
+        <a href="js_task3.6.html">06-TwoNeighbors</a>&ensp;|&ensp;
+        <a href="js_task3.7.html">07-TwoNeighborsBigger</a>
+    </div><br>
+
+    <input id="btn" onclick="calc()" type="button" value="Execute">
+    
+    <div id="console"></div>
+    <script src="js-console.js"></script>
+    <script>
+        
+        function calc() {
+            var elements = document.getElementsByTagName('div');
+            jsConsole.write(elements.length);
+        }
+    </script>
+</body>
+
+</html>

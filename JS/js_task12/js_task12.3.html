@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 12.3</title>
+    <link rel="stylesheet" href="style1.css">
+
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><input id="elem" type="color"></td>
+            <td><input onclick="calc()" type="button" value="Chenge Background Color"></td>
+        </tr>
+    </table>
+
+    <script>
+
+        function calc() {
+            document.bgColor = document.getElementById('elem').value;
+        }
+
+    </script>
+</body>
+
+</html>

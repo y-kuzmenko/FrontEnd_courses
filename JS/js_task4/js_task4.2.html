@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Task 4.2</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+  <div style="background-color: darkgrey;">
+    <a href="js_task4.1.html">01-ReverseString</a>&ensp;|&ensp;
+    <a href="js_task4.2.html">02-BracketChecker</a>&ensp;|&ensp;
+    <a href="js_task4.3.html">03-SubstringCount</a>&ensp;|&ensp;
+    <a href="js_task4.4.html">04-UpCaseLowerCase</a>&ensp;|&ensp;
+    <a href="js_task4.5.html">05-nbsp</a>&ensp;|&ensp;
+
+  </div><br>
+  <table>
+    <tr>
+      <td>Expression: </td>
+      <td><input id="word" type="text"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input id="btn" onclick="calc()" type="button" value="Execute"></td>
+    </tr>
+  </table>
+
+  <div id="console"></div>
+  <script src="js-console.js"></script>
+  <script>
+
+    function calc() {
+      let str = document.getElementById("word").value;
+      function checkBrackets(str) {
+
+        var depth = 0;
+
+        for (let i in str) {
+          if (str[i] == '(') {
+
+            depth++;
+          } else if (str[i] == ')') {
+
+            depth--;
+          }
+
+          if (depth < 0) return ("Invalid Expression!");
+        }
+
+        if (depth > 0) return ("Invalid Expression!");
+
+        return ("Valid Expression!");
+      }
+      jsConsole.write(checkBrackets(str));
+    }
+
+  </script>
+</body>
+
+</html>

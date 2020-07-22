@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 7.6</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+    <div style="background-color: darkgrey;">
+        <a href="js_task7.1.html">01-PlanarSystem</a>&ensp;|&ensp;
+        <a href="js_task7.2.html">02-CustomRemote</a>&ensp;|&ensp;
+        <a href="js_task7.3.html">03-DeepCopy</a>&ensp;|&ensp;
+        <a href="js_task7.4.html">04-PropChecker</a>&ensp;|&ensp;
+        <a href="js_task7.5.html">05-YoungestPerson</a>&ensp;|&ensp;
+        <a href="js_task7.6.html">06-Grouping</a>&ensp;|&ensp;
+    </div><br>
+    <table>
+        <tr>
+            <td></td>
+            <td><input id="btn" onclick="calc()" type="button" value="Execute"
+                    style="background-color: rgb(211, 211, 211); color: #000;"></td>
+        </tr>
+    </table>
+
+    <div id="console"></div>
+    <script src="js-console.js"></script>
+    <script>
+        function calc() {
+
+            function groupPeople(array, prop) {
+                var result = new Object();
+
+                for (var person in array) {
+                    if (result[array[person][prop]] == undefined || result[array[person][prop]] == null) {
+                        result[array[person][prop]] = new Array();
+                    }
+                    result[array[person][prop]].push(array[person]);
+                }
+                return result;
+            }
+
+            var persons = [
+                { firstname: "Natalya", lastname: "Osipenko", age: 61 },
+                { firstname: "Kristina", lastname: "Osipenko", age: 23 },
+                { firstname: "Artem", lastname: "Korhov", age: 25 },
+                { firstname: "Artem", lastname: "Seredinskiy", age: 20 },
+                { firstname: "Artem", lastname: "Artsiomenka", age: 20 },
+                { firstname: "Sergey", lastname: "Osipenko", age: 20 },
+                { firstname: "Vinni", lastname: "Puh", age: 15 }
+            ];
+            var groupedByAge = groupPeople(persons, "age");
+            var groupedByLastName = groupPeople(persons, "lastname");
+            var groupedByFirstName = groupPeople(persons, "firstname");
+
+
+            Object.keys(groupedByAge).forEach(key => jsConsole.write('</br>' + key));
+            Object.keys(groupedByLastName).forEach(key => jsConsole.write('</br>' + key));
+            Object.keys(groupedByFirstName).forEach(key => jsConsole.write('</br>' + key));
+
+        }
+
+    </script>
+
+</body>
+
+</html>

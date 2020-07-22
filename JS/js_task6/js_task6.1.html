@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Task 6.1</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="js-console.css">
+</head>
+
+<body>
+  <div style="background-color: rgb(88, 173, 141); width: 100px; height: 50px; margin-left: 25px;">
+    <a href="js_task6.1.html" style="display: block; margin-left: 23px; padding-top: 13px;">Person</a>
+  </div><br>
+  <table>
+    <tr>
+      <td>Enter your firstname: </td>
+      <td><input id="firstName" type="text"></td>
+    </tr>
+    <tr>
+      <td>Enter your lastname: </td>
+      <td><input id="lastName" type="text"></td>
+    </tr>
+    <tr>
+      <td>Enter your age: </td>
+      <td><input id="age" type="text"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input id="btn" onclick="calc()" type="button" value="Introduce"></td>
+    </tr>
+  </table>
+
+  <div id="console"></div>
+  <script src="js-console.js"></script>
+  <script>
+    function calc() {
+
+      function nameValidator(name) {
+        let NAME_REGEXP = /^[a-zA-Z]+/;
+        if (typeof name !== 'string') {
+          jsConsole.write('Incorrect name' + '<br />');
+          throw 'Incorrect name';
+        }
+        if (name.length === 0) {
+          jsConsole.write('Please fill in all fields' + '<br />');
+          throw 'Please fill in all fields';
+        }
+        if (!NAME_REGEXP.test(name) || name.length < 3 || name.length > 20) {
+          jsConsole.write('Incorrect name' + '<br />');
+          throw 'Incorrect name';
+        } else {
+          return name;
+        }
+      }
+
+      function ageValidator(age) {
+        let AGE_REGEXP = /^(0|[1-9][0-9]?|1[1-4][0-9]|150)$/;
+        if (AGE_REGEXP.test(age)) {
+          return age;
+        }
+        if (age.length === 0) {
+          jsConsole.write('Please fill in all fields' + '<br />');
+          throw 'Please fill in all fields';
+        }
+        else {
+          jsConsole.write('Incorrect age' + '<br />');
+          throw 'Incorrect age';
+        }
+      }
+
+      function Person(firstname, lastname, age) {
+        this.firstname = nameValidator(firstname);
+        this.lastname = nameValidator(lastname);
+        this.age = ageValidator(age);
+      }
+      Person.prototype.get = function () {
+        return this.firstname + ' ' + this.lastname;
+      };
+      Person.prototype.set = function (fullname) {
+        var fname = fullname.split(' ');
+        this.firstname = nameValidator(fname[0]);
+        this.lastname = nameValidator(fname[1]);
+      };
+      Person.prototype.introduce = function () {
+        return 'Hello! My name is ' + this.get() + ' and I am ' + this.age + ' - years-old' + '<br />';
+      };
+
+      let firstName = document.getElementById("firstName").value;
+      let lastName = document.getElementById("lastName").value;
+      let myAge = document.getElementById("age").value;
+      let myPerson = new Person(firstName, lastName, myAge);
+      jsConsole.write(myPerson.introduce());
+    }
+
+  </script>
+</body>
+
+</html>
